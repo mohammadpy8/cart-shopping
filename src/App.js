@@ -1,35 +1,15 @@
-import './App.css';
-import { Route, Switch, Redirect } from "react-router-dom";
+import React from "react";
+import HomePage from "./pages/HomePage";
 
-// Components
-import Store from './components/Store';
-import ProductDetails from './components/ProductDetails';
-import Navbar from './components/shared/Navbar';
-import ShopCart from './components/ShopCart';
+import { Route, Routes } from "react-router-dom";
 
-// Context
-import ProductContextProvider from './context/ProductContextProvider';
-import CartContextProvider from './context/CartContextProvider';
-
-//login/Signup
-
-import Login from "./login&signUp/Login";
-import SignUp from "./login&signUp/SignUp";
-
+import "./App.css";
 
 function App() {
   return (
-    <ProductContextProvider>
-      <CartContextProvider>
-        <Navbar />
-        <Switch>
-          <Route path="/products/:id" component={ProductDetails} />
-          <Route path="/products" component={Store} />
-          <Route path="/cart" component={ShopCart} />
-          <Redirect to="/products" />
-        </Switch>
-      </CartContextProvider>
-    </ProductContextProvider>
+    <Routes>
+      <Route path="/" element={<HomePage />} />
+    </Routes>
   );
 }
 

@@ -1,12 +1,12 @@
-import React from 'react';
-import Layout from '../layout/Layout';
+import React from "react";
+import { products } from "../data";
 
 const HomePage = () => {
-    return (
-        <Layout>
-            <h2>this is home page</h2>
-        </Layout>
-    );
+  return (
+    <main>
+      <section>{products.map((product) => {})}</section>
+    </main>
+  );
 };
 
 export default HomePage;

@@ -11,20 +11,24 @@ import ProductContextProvider from "./context/ProductContextProvider";
 import CartContextProvider from "./context/CartContextProvider";
 
 import "./App.css";
+import Counter from "./app/Counter";
 
 function App() {
   return (
-    <CartContextProvider>
-      <ProductContextProvider>
-        <Navbar />
-        <Routes>
-          <Route path="/products" element={<Store />} />
-          <Route path="/products/:id" element={<ProductsDetails />} />
-          <Route path="/cart" element={<ShopCart />} />
-          <Route render={() => <Navigate to="/products" />} />
-        </Routes>
-      </ProductContextProvider>
-    </CartContextProvider>
+    // <CartContextProvider>
+    //   <ProductContextProvider>
+    //     <Navbar />
+    //     <Routes>
+    //       <Route path="/products" element={<Store />} />
+    //       <Route path="/products/:id" element={<ProductsDetails />} />
+    //       <Route path="/cart" element={<ShopCart />} />
+    //       <Route render={() => <Navigate to="/products" />} />
+    //     </Routes>
+    //   </ProductContextProvider>
+    // </CartContextProvider>
+    <div>
+      <Counter />
+    </div>
   );
 }
 

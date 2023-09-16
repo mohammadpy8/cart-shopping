@@ -1,4 +1,5 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import axios from "axios";
 
 const initialState = {
   loading: false,
@@ -6,14 +7,14 @@ const initialState = {
   error: "",
 };
 
-const fetchUsers = createAsyncThunk("user/fetchUsers", () => {
-  fetch("https://jsonplaceholder.typicode.com/users")
-    .then((res) => res.json())
-    .then((data) => data);
+const fetchUsers = createAsyncThunk("users/fetchUsers", async () => {
+  return await axios
+    .get("https://jsonplaceholder.typicode.com/users")
+    .then((res) => res.data);
 });
 
-const userSlice = createSlice({
-  name: "user",
+const usersSlice = createSlice({
+  name: "users",
   initialState,
   extraReducers: (builder) => {
     builder.addCase(fetchUsers.pending, (state) => {
@@ -32,5 +33,5 @@ const userSlice = createSlice({
   },
 });
 
-export default userSlice.reducer;
+export default usersSlice.reducer;
 export { fetchUsers };
